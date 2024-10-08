@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Card_Details = ({ params }: {params:{id:number}}) => {
+const Card_Details = ({ params }: { params: { id: number } }) => {
   return (
     <div>
-        Card ID: {params.id}
+      Card ID: {params.id}
     </div>
   )
 }

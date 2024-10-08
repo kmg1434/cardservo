@@ -28,6 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <h1 className="bg-gradient-to-b from-yellow-400 to-red-500">Cardservo</h1>
         {children}
       </body>
     </html>

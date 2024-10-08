@@ -1,10 +1,10 @@
 import React from 'react'
 
-const Deck_Page = ({ params }: {params:{id:number}}) => {
+const Deck_Page = ({ params }: { params: { id: number } }) => {
   return (
     <div>
-        <h1>Deck_Page</h1>
-        <div>Details of Deck {params.id}</div>
+      <h1>Deck_Page</h1>
+      <div>Details of Deck {params.id}</div>
     </div>
   )
 }
