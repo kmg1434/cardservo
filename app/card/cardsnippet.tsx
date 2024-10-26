@@ -1,34 +1,7 @@
 import React from 'react'
-import Navbar from '../components/navbar';
 import Image from 'next/image'
-import { CardSnippet } from './cardsnippet';
 
-interface GathererCardObj {
-  name: string,
-  manaCost: string,
-  cmc: number,
-  colors: Array<string>,
-  colorIdentity: Array<string>,
-  type: string,
-  types: Array<string>,
-  subtypes: Array<string>,
-  rarity: string,
-  set: string,
-  setname: string,
-  text: string,
-  flavor: string,
-  artist: string,
-  number: string,
-  power: string,
-  toughness: string,
-  layout: string,
-  variations: Array<string>,
-  printings: Array<string>,
-  legalitites: Array<string>,
-  id: string,
-}
-
-interface ScryfallCardObj {
+interface Card {
   object: string,
   id: string,
   oracle_id: string,
@@ -139,37 +112,21 @@ interface ScryfallCardObj {
   }
 }
 
-const gathererUrl = 'https://api.magicthegathering.io/v1/cards';
-const scryfallUrl = 'https://api.scryfall.com/cards/search?q=destroy the evidence';
+interface CardProps {
+  card: Card
+}
 
-const card = async ({ params }: { params: { id: number } }) => {
-
-  const res = await fetch(scryfallUrl, {
-    method: 'GET',
-    headers: {
-      'User-Agent': 'Cardservo/v0.0.1',
-      'Accept': 'application/json;',
-    },
-  })
-
-  const cards = await res.json()
-
-  console.log("cards: ", cards);
-
+export const CardSnippet = ({ card }: CardProps) => {
   return (
-    <div>
-      <Navbar/>
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-2xl font-bold text-gray-800 mb-6">
-          Title of card page
-        </h1>
-        {
-          cards['data'].map((card: ScryfallCardObj) => 
-            <CardSnippet key={card.id} card={card}/>)
-        }
-      </div>
+    <div className='bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg'>
+      <h2 className="text-sm font-semibold text-green-800 mb-2 truncate">{card.name}
+      </h2>
+      <Image
+        src="https://cards.scryfall.io/large/front/b/c/bca53097-108d-457e-831c-e3d6cb499a41.jpg?1562792382"
+        width={500}
+        height={500}
+        alt="Picture of the card art"
+      />
     </div>
   )
 }
-
-export default card

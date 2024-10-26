@@ -10,7 +10,7 @@ export default function Home() {
 
           <nav className="p-4">
             <ul className="flex space-x-4">
-              <li><Link href="/home" className="font-mono text-slate-900 font-bold text-9xl">Cardservo</Link></li>
+              <li><Link href="/" className="font-mono text-slate-900 font-bold text-9xl">Cardservo</Link></li>
             </ul>
           </nav>
 

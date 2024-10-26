@@ -16,12 +16,17 @@ const Navbar = () => {
                     <li className={pathname === '/' ?
                         'text-white bg-gray-900 px-3 py-2 rounded-md'
                         : 'text-gray-300 hover:text-white px-3 py-2 rounded-md'}>
-                        <Link href="/home">Home</Link>
+                        <Link href="/">Home</Link>
                     </li>
                     <li className={pathname === '/deck' ?
                         'text-white bg-gray-900 px-3 py-2 rounded-md'
                         : 'text-gray-300 hover:text-white px-3 py-2 rounded-md'}>
                         <Link href="/deck">Decks</Link>
+                    </li>
+                    <li className={pathname === '/card' ?
+                        'text-white bg-gray-900 px-3 py-2 rounded-md'
+                        : 'text-gray-300 hover:text-white px-3 py-2 rounded-md'}>
+                        <Link href="/card">Cards</Link>
                     </li>
                     <li className={pathname === '/settings' ?
                         'text-white bg-gray-900 px-3 py-2 rounded-md'
