@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import Navbar from '../components/navbar'
+import Navbar from '../components/nav-bar'
 
 const deck = ({ searchParams }: { searchParams: { user: number, format: string } }) => {
     return (

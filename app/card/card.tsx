@@ -6,7 +6,7 @@ import { CardSnippet } from './card-snippet';
 const gathererUrl = 'https://api.magicthegathering.io/v1/cards';
 const scryfallUrl = 'https://api.scryfall.com/cards/search?q=destroy';
 
-const card = async ({ params }: { params: { id: number } }) => {
+const Card = async ({ params }: { params: { id: number } }) => {
 
   const res = await fetch(scryfallUrl, {
     method: 'GET',
@@ -23,7 +23,7 @@ const card = async ({ params }: { params: { id: number } }) => {
       <Navbar/>
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-2xl font-bold text-gray-800 mb-6">
-          Title of card page
+          Title of Card Page
         </h1>
         <div className='flex'>
           {
@@ -36,4 +36,4 @@ const card = async ({ params }: { params: { id: number } }) => {
   )
 }
 
-export default card
+export default Card

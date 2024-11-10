@@ -1,4 +1,4 @@
-import Navbar from '@/app/components/navbar'
+import Navbar from '@/app/components/nav-bar'
 import React from 'react'
 
 const Deck_Page = ({ params }: { params: { id: number } }) => {
