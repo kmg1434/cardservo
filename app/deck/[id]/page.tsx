@@ -1,7 +1,7 @@
 import Navbar from '@/app/components/nav-bar'
 import React from 'react'
 
-const Deck_Page = ({ params }: { params: { id: number } }) => {
+const DeckDetailsPage = ({ params }: { params: { id: number } }) => {
   return (
     <div>
       <Navbar />
@@ -11,4 +11,4 @@ const Deck_Page = ({ params }: { params: { id: number } }) => {
   )
 }
 
-export default Deck_Page
+export default DeckDetailsPage

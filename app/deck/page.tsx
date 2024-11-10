@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import Navbar from '../components/nav-bar'
 
-const deck = ({ searchParams }: { searchParams: { user: number, format: string } }) => {
+const DeckPage = ({ searchParams }: { searchParams: { user: number, format: string } }) => {
     return (
         <div>
             <Navbar />
@@ -14,4 +14,4 @@ const deck = ({ searchParams }: { searchParams: { user: number, format: string }
     )
 }
 
-export default deck
+export default DeckPage

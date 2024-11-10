@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Card_Details = ({ params }: { params: { id: number } }) => {
+const CardDetailsPage = ({ params }: { params: { id: number } }) => {
   return (
     <div>
       Card ID: {params.id}
@@ -8,4 +8,4 @@ const Card_Details = ({ params }: { params: { id: number } }) => {
   )
 }
 
-export default Card_Details
+export default CardDetailsPage
