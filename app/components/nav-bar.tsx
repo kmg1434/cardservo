@@ -7,8 +7,6 @@ const Navbar = () => {
 
     const pathname = usePathname();
 
-    console.log("pathname: ", pathname);
-
     return (
         <div>
             <nav className="bg-gradient-to-b from-yellow-400 to-red-400 flex p-4">
