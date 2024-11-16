@@ -8,7 +8,7 @@ const DeckDetailsPage = ({ params }: { params: { id: number } }) => {
   const deck: Deck = {
     owner: "Kevin",
     title: "Some Izzet Combo Deck",
-    card_list: "izzet charm, sol ring, reverberate",
+    cardList: "izzet charm, sol ring, reverberate",
     id: "1",
   }
 

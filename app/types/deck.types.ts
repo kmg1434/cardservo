@@ -1,8 +1,8 @@
 interface Deck {
+    id: string
     owner: string,
     title: string,
-    card_list: string,
-    id: string
+    cardList: string,
 }
 
 interface DeckProps {
