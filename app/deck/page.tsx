@@ -1,29 +1,25 @@
 import Link from 'next/link'
 import React from 'react'
 import Navbar from '../components/nav-bar'
-import { DeckHeader } from '../components/deck-header'
+import prisma from '../_lib/db'
 
 const DeckPage = async ({ params }: { params: { id: number } }) => {
 
-    const deck: Deck = {
-        owner: "Kevin",
-        title: "Some Izzet Combo Deck",
-        cardList: "izzet charm, sol ring, reverberate",
-        id: "1"
-    }
-
-    const user: User = {
-        name: "Kevin",
-        id: "1234", 
-    }
+    const decks = await prisma.deck.findMany();
 
     return (
+
+
         <div>
             <Navbar />
             <h1 className="">Title of Deck Page</h1>
-            <Link href="/deck/1">Deck_1</Link>
-            <br></br>
-            <Link href="/deck/2">Deck_2</Link>
+            {decks.map((deck) => (
+                 <li key={deck.id} className='flex items-center justify-between px-5 py-5 border-cyan-500 border-2'>
+                    <Link href={`/deck/${deck.id}`}>
+                        {deck.title} 
+                    </Link>
+                 </li>
+            ))}
         </div>
     )
 }
