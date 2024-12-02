@@ -49,11 +49,11 @@ const DecksPage = async ({ params }: { params: { id: string } }) => {
                         margin
                     </div>
                 </div>
-                <div className='flex-container justify-center py-8 flex flex-row flex-12'>
+                <div className='flex-container justify-center text-black py-8 flex flex-row flex-12'>
                     <form action={createDeck} className='flex flex-col  bg-gray-800 border-4 p-4 rounded-lg border-gray-500 gap-y-2 w-[500px]'>
                         <input type="text" name="title" placeholder="Title" className="p-1" />
                         <input type="text" name="format" placeholder="Format" className="p-1" />
-                        <input type="checkbox" name="public" className="p-1" />
+                        <input type="checkbox" name="public" value="Public" checked className="p-1" />
                         <textarea name="cardList" rows={6} placeholder="Card List" className="p-1" />
                         <button type="submit" className=" rounded-sm p-1 m-2 bg-blue-500 w-1/3 self-center">Create Deck</button>
                     </form>
