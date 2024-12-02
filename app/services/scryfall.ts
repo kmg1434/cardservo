@@ -1,38 +1,36 @@
-//convert deck list to card data
-
-const scryfallBaseUrl = 'https://api.scryfall.com';
+import { SCRYFALL_BASE_URL } from "../_lib/constants";
 
 // convert decklist string to card data 
-async function getDeckList(deckList: string) {
+export async function getDeckList(deckList: string) {
 
-    const multiverseIds = deckList.split(',');
+    const multiverseIds: Array<number> = deckList.split(',').map(num => parseInt(num, 10));
 
-    const body = {
-        "identifiers": [
-            {
-                "multiverse_id": "683a5707-cddb-494d-9b41-51b4584ded69"
-            },
-            {
-                "name": "Ancient Tomb"
-            },
-            {
-                "set": "mrd",
-                "collector_number": "150"
-            }
-        ]
-    }
-    multiverseIds.forEach(id => {
+    // const tempMultiverseIds: Array<number> = [6556, 666, 667];
 
-    });
-    const scryfallUrl = `${scryfallBaseUrl}/cards/multiverse/${multiverseIds[0]}`;
+    // create request body object based on array of multiverse id numbers
+    const requestBody = {
+        identifiers: multiverseIds.map(id => ({ multiverse_id: id }))
+    };
 
-    const res = await fetch(scryfallUrl, {
-        method: 'GET',
+    console.log("requestBody: ", requestBody);
+
+    console.log("requestBodyLength: ", JSON.stringify(requestBody.identifiers).length.toString());
+
+    const scryfallCollectionUrl = `${SCRYFALL_BASE_URL}/cards/collection`;
+
+    const res = await fetch(scryfallCollectionUrl, {
+        method: 'POST',
         headers: {
             'User-Agent': 'Cardservo/v0.0.1',
+            'Content-Type': 'application/json;',
             'Accept': 'application/json;',
         },
+        body: JSON.stringify(requestBody)
     })
+
+    const data = await res.json();
+
+    console.log("RESPONSE FROM SCRYFALL: ", data);
 
     return 0;
 }

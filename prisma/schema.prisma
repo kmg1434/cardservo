@@ -15,8 +15,9 @@ datasource db {
 
 model Deck {
   id        String   @id @default(cuid())
-  owner     String
   title     String
+  author    User @relation(fields: [authorId], references: [id])
+  authorId  String
   cardList  String
   format    String
   public    Boolean? @default(true)
@@ -25,9 +26,11 @@ model Deck {
 }
 
 model User {
-  id        String   @id @default(cuid())
-  firstName String
-  lastName  String
-  email     String
-  createdAt DateTime @default(now())
+  id             String   @id @default(cuid())
+  firstName      String
+  lastName       String
+  email          String   @unique
+  createdAt      DateTime @default(now())
+  hashedPassword String   @default(cuid())
+  decks          Deck[]
 }

@@ -1,3 +1,4 @@
+// Scryfall Shape
 interface Card {
   object: string,
   id: string,

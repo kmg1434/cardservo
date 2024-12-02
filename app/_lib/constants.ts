@@ -1,1 +1,1 @@
-export const EXAMPLE_CONSTANT = 3;
+export const SCRYFALL_BASE_URL = 'https://api.scryfall.com';
