@@ -1,30 +1,32 @@
-import { Deck } from "@prisma/client";
+"use server";
+import { Deck, Prisma } from "@prisma/client";
 import prisma from "../_lib/db";
-import { toDeckDTO } from "../types/adapters/deck-adapter";
+import { revalidatePath } from "next/cache";
 
 
-export async function getDeck(id: string) {
-  // const deck = await prisma.deck.findUnique({
-  //   where: {
-  //     id: id
-  //   },
-  //   select: {
-  //     id: true,
-  //     owner: true,
-  //     title: true,
-  //     cardList: true,
-  //     format: true,
-  //     public: true,
-  //     createdAt: true,
-  //     updatedAt: true
-  //   }
-  // })
+export async function createDeck(formData: FormData) {
+  try {
+    const deck = await prisma.deck.create({
+      data: {
+        title: formData.get("title") as string,
+        author: {
+          connect: {
+            email: "kevin@email.com" // logged in user's email address
+          }
+        },
+        cardList: formData.get("cardList") as string,
+        format: formData.get("format") as string,
+      }
+    })
 
-  // let deckDTO: DeckDTO;
-  
-  // if (deck) deckDTO = deck.map(deck =>
-  //   toDeckDTO(deck)
-  // );
+  } catch (error) {
+    if (error instanceof Prisma.PrismaClientKnownRequestError) {
+      if (error.code === 'P2002') {
+        console.log('There is a unique constraint violation, a new user cannot be created with this email')
+      }
+    }
+    console.log(error);
+  }
 
-  // return deckDTO;
+  revalidatePath('/decks');
 }

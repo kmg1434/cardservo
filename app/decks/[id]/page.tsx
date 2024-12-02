@@ -3,7 +3,6 @@ import { DeckBody } from '@/app/components/deck-body'
 import { DeckHeader } from '@/app/components/deck-header'
 import Navbar from '@/app/components/nav-bar'
 import { getDeckList } from '@/app/services/scryfall'
-import { toDeckDTO } from '@/app/types/adapters/deck-adapter'
 import { Deck } from '@prisma/client'
 import React from 'react'
 
@@ -34,7 +33,7 @@ const DeckDetailsPage = async ({ params }: { params: { id: string } }) => {
       <div>Deck not found</div>
     )
   } else {
-    deckDTO = toDeckDTO(deck);
+    // deckDTO = toDeckDTO(deck);
   }
 
   // getDeckList(deckDTO.cardList);
@@ -42,8 +41,8 @@ const DeckDetailsPage = async ({ params }: { params: { id: string } }) => {
   return (
     <div>
       <Navbar />
-      <DeckHeader deck={deckDTO}/>
-      <DeckBody deck={deckDTO} />
+      {/* <DeckHeader deck={deckDTO}/>
+      <DeckBody deck={deckDTO} /> */}
       <h1>Deck Details Page</h1>
       <h2>{}</h2>
       {/* <div>Details of Deck {deck.id}</div> */}
