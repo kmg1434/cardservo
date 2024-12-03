@@ -3,14 +3,17 @@ import Image from 'next/image'
 
 export const CardSnippet = ({ card }: CardProps) => {
   return (
-    <div className='bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg'>
-      <div className='px-4 py-4'>
+    <div className='flex flex-col'>
+      <div className='flex flex-row shadow-md hover:shadow-lg rounded-3xl overflow-hidden'>
         <Image
           src={card.image_uris.normal}
-          width={400}
+          width={300}
           height={400}
           alt={card.name}
         />
+      </div>
+      <div className=' py-2 flex flex-row justify-center'>
+        {card.name}
       </div>
     </div>
   )

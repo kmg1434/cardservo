@@ -40,15 +40,6 @@ const initialDecks: Prisma.DeckCreateInput[] = [
   }
 ];
 
-// const initialUsers: Prisma.UserCreateInput[] = [
-//   {
-//     firstName: "Kevin",
-//     lastName: "Grady",
-//     email: "kevin@email.com",
-//     decks: { create: initialDecks }
-//   }
-// ];
-
 async function main() {
   console.log(`Start seeding ...`);
 
@@ -56,13 +47,6 @@ async function main() {
     const deck = await prisma.deck.create({ data: decks });
     console.log(`Created deck with id: ${deck.id}`);
   }
-
-  // for (const users of initialUsers) {
-  //   const user = await prisma.user.create({ data: users });
-  //   console.log(`Created user with id: ${user.id}`);
-  // }
-
-  console.log(`Seeding finished.`);
 }
 
 main()

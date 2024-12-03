@@ -28,13 +28,10 @@ const DecksPage = async ({ params }: { params: { id: string } }) => {
         <div>
             <Navbar />
             <div className='flex-container flex-row'>
-                <div className='flex-container flex'>
-                    <div className='flex  flex-1 w-8  bg-slate-800'>
-                        margin
-                    </div>
-                    <div className='flex flex-col flex-2 w-3/4 p-4'>
+                <div className='flex-container flex justify-center'>
+                    <div className='flex flex-col flex-1 max-w-6xl p-4'>
                         <h1 className="py-8 text-2xl">Results for: "Title of Decks Page"</h1>
-                        <SearchBar />
+                        <SearchBar placeholder="Search Decks..." />
                         {decks.map((deck) => (
                             <li key={deck.id} className='flex flex-1 items-center justify-between my-4 px-5 py-5 border-cyan-500 rounded-lg border-2'>
                                 <Link href={{
@@ -44,9 +41,6 @@ const DecksPage = async ({ params }: { params: { id: string } }) => {
                                 </Link>
                             </li>
                         ))}
-                    </div>
-                    <div className='flex flex-1 w-8 bg-slate-800'>
-                        margin
                     </div>
                 </div>
                 <div className='flex-container justify-center text-black py-8 flex flex-row flex-12'>

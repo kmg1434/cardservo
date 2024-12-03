@@ -16,7 +16,7 @@ datasource db {
 model Deck {
   id        String   @id @default(cuid())
   title     String
-  author    User @relation(fields: [authorId], references: [id])
+  author    User     @relation(fields: [authorId], references: [id])
   authorId  String
   cardList  String
   format    String

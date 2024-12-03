@@ -1,7 +1,7 @@
 import { SCRYFALL_BASE_URL } from "../_lib/constants";
 
 // convert decklist string to card data 
-export async function getDeckList(deckList: string) {
+export async function getDeckList(deckList: string): Promise<Card[]> {
 
     const multiverseIds: Array<number> = deckList.split(',').map(num => parseInt(num, 10));
 
@@ -12,13 +12,9 @@ export async function getDeckList(deckList: string) {
         identifiers: multiverseIds.map(id => ({ multiverse_id: id }))
     };
 
-    console.log("requestBody: ", requestBody);
-
-    console.log("requestBodyLength: ", JSON.stringify(requestBody.identifiers).length.toString());
-
     const scryfallCollectionUrl = `${SCRYFALL_BASE_URL}/cards/collection`;
 
-    const res = await fetch(scryfallCollectionUrl, {
+    const response = await fetch(scryfallCollectionUrl, {
         method: 'POST',
         headers: {
             'User-Agent': 'Cardservo/v0.0.1',
@@ -28,9 +24,10 @@ export async function getDeckList(deckList: string) {
         body: JSON.stringify(requestBody)
     })
 
-    const data = await res.json();
+    const data = await response.json();
+    const cardData = data.data;
 
-    console.log("RESPONSE FROM SCRYFALL: ", data);
+    console.log("RESPONSE FROM SCRYFALL: ", cardData);
 
-    return 0;
+    return cardData;
 }

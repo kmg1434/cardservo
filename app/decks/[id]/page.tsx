@@ -1,4 +1,5 @@
 import prisma from '@/app/_lib/db'
+import { toDeckWithCardsDTO } from '@/app/api/adapters'
 import { DeckBody } from '@/app/components/deck-body'
 import { DeckHeader } from '@/app/components/deck-header'
 import Navbar from '@/app/components/nav-bar'
@@ -24,28 +25,21 @@ const DeckDetailsPage = async ({ params }: { params: { id: string } }) => {
     }
   })
 
-  // console.log("deck: ", deck);
-
-  let deckDTO: DeckDTO;
+  let deckDTO: DeckWithCardsDTO;
 
   if (!deck) {
     return (
       <div>Deck not found</div>
     )
   } else {
-    // deckDTO = toDeckDTO(deck);
+    deckDTO = await toDeckWithCardsDTO(deck);
   }
-
-  // getDeckList(deckDTO.cardList);
 
   return (
     <div>
       <Navbar />
-      {/* <DeckHeader deck={deckDTO}/>
-      <DeckBody deck={deckDTO} /> */}
-      <h1>Deck Details Page</h1>
-      <h2>{}</h2>
-      {/* <div>Details of Deck {deck.id}</div> */}
+      <DeckHeader deck={deckDTO}/>
+      <DeckBody deck={deckDTO} />
     </div>
   )
 }
