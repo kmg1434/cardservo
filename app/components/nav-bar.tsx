@@ -24,7 +24,7 @@ const Navbar = () => {
                     <li className={pathname === '/cards' ?
                         'text-white bg-gray-900 px-3 py-2 rounded-md'
                         : 'text-gray-300 hover:text-white px-3 py-2 rounded-md'}>
-                        <Link href="/card">Cards</Link>
+                        <Link href="/cards">Cards</Link>
                     </li>
                     <li className={pathname === '/settings' ?
                         'text-white bg-gray-900 px-3 py-2 rounded-md'

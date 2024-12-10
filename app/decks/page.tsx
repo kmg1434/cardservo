@@ -22,8 +22,6 @@ const DecksPage = async ({ params }: { params: { id: string } }) => {
         }
     });
 
-    // const decks = getDeck(params.id);
-
     return (
         <div>
             <Navbar />

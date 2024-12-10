@@ -11,12 +11,16 @@ export default function Home() {
 
           <nav className="p-4">
             <ul className="flex space-x-4">
-              <li><Link href="/" className="font-mono text-slate-900 font-bold text-9xl">Cardservo</Link></li>
+              <li>
+                <Link href="/" className="font-mono text-slate-900 font-bold text-9xl">
+                  Cardservo
+                </Link>
+              </li>
             </ul>
           </nav>
-          <div className="flex mx-auto">
-            <SearchBar placeholder="Search Cards..." />
-          </div>
+          {/* <div className="flex mx-auto">
+            <SearchBar searchBarProps={{ placeholder: "Search Cards..." }} />
+          </div> */}
         </main>
         <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         </footer>

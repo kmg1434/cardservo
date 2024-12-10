@@ -11,6 +11,7 @@ export async function toDeckWithCardsDTO(deck: Deck) {
         title: deck.title,
         cards: cardData,
         format: deck.format,
+        public: deck.public,
         createdAt: deck.createdAt.toString(),
         updatedAt: deck.updatedAt.toString(),
     }

@@ -8,7 +8,7 @@ const initialDecks: Prisma.DeckCreateInput[] = [
       connectOrCreate: {
         where: {
           email: "kevin@email.com"
-        }, 
+        },
         create: {
           email: "kevin@email.com",
           firstName: "Kevin",
@@ -16,7 +16,7 @@ const initialDecks: Prisma.DeckCreateInput[] = [
         }
       }
     },
-    cardList: "[87,7654,14876,654,90]",
+    cardList: "87,7654,14876,654,90",
     format: "Commander",
     public: true
   },
@@ -26,7 +26,7 @@ const initialDecks: Prisma.DeckCreateInput[] = [
       connectOrCreate: {
         where: {
           email: "kevin@email.com"
-        }, 
+        },
         create: {
           email: "kevin@email.com",
           firstName: "Kevin",
@@ -34,7 +34,7 @@ const initialDecks: Prisma.DeckCreateInput[] = [
         }
       }
     },
-    cardList: "[876,546,5436,576,1]",
+    cardList: "876,546,5436,576,1",
     format: "Commander",
     public: true
   }
