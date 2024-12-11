@@ -29,7 +29,7 @@ const DecksPage = async ({ params }: { params: { id: string } }) => {
                 <div className='flex-container flex justify-center'>
                     <div className='flex flex-col flex-1 max-w-6xl p-4'>
                         <h1 className="py-8 text-2xl">Results for: "Title of Decks Page"</h1>
-                        <SearchBar placeholder="Search Decks..." />
+                        <SearchBar searchBarProps={{ placeholder: "Search Decks..." }} />
                         {decks.map((deck) => (
                             <li key={deck.id} className='flex flex-1 items-center justify-between my-4 px-5 py-5 border-cyan-500 rounded-lg border-2'>
                                 <Link href={{
@@ -47,7 +47,7 @@ const DecksPage = async ({ params }: { params: { id: string } }) => {
                         <input type="text" name="format" placeholder="Format" className="p-1" />
                         <input type="checkbox" name="public" value="Public" checked className="p-1" />
                         <textarea name="cardList" rows={6} placeholder="Card List" className="p-1" />
-                        <button type="submit" className=" rounded-sm p-1 m-2 bg-blue-500 w-1/3 self-center">Create Deck</button>
+                        <button type="submit" className="rounded-sm p-1 m-2 bg-blue-500 w-1/3 self-center">Create Deck</button>
                     </form>
                 </div>
             </div>

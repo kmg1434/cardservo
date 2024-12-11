@@ -2,6 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 
 export const CardSnippet = ({ card }: CardProps) => {
+
   return (
     <div className='flex flex-col p-1 overflow-hidden transition-all duration-300'>
       <div className='flex flex-row shadow-lg rounded-2xl overflow-hidden'>

@@ -8,41 +8,38 @@ import { SearchBar } from "../components/search-bar";
 const CardsPage = async ({
   searchParams,
 }: {
-  searchParams?: { [key: string]: string | string[] | undefined };
+  searchParams?: SearchParams;
 }) => {
 
   const searchBarProps = {
-    searchTerm: searchParams?.search,
+    searchTerm: searchParams?.search as string,
     placeholder: "Search Cards...",
   };
 
   if (searchParams?.search) {
+
     const cards: Card[] = await searchCards(searchParams?.search as string);
 
     if (cards) {
       return (
         <>
           <Navbar />
-          {/* <SearchBar searchBarProps={searchBarProps} /> */}
-          <div className="container mx-auto px-4 py-8">
-            <h1 className="text-2xl font-bold text-gray-800 mb-6">
-              Title of card page
-            </h1>
-            <div className="flex">
+          <SearchBar searchBarProps={searchBarProps} />
+          <section className="container mx-auto px-4 py-8">
+            <ul className="flex">
               {cards.map((card: Card) => (
-                <div>
-                  multiverse Id: {card.multiverse_id}
+                <li key={card.id} className="flex min-w-12">
                   <Link
                     href={{
-                      pathname: `/cards/${card.multiverse_id}`,
+                      pathname: `/cards/${card.id}`,
                     }}
                   >
-                    <CardSnippet key={card.id} card={card} />
+                    <CardSnippet card={card} />
                   </Link>
-                </div>
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
+          </section>
         </>
       );
     } else {

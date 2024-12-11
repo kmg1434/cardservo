@@ -1,8 +1,10 @@
+"use client";
+
 import Link from "next/link";
 
 export const SearchBar = ({
   searchBarProps,
-}: { searchBarProps: { searchTerm?: string | string[], placeholder?: string | undefined } }) => {
+}: { searchBarProps: { searchTerm?: string, placeholder?: string } }) => {
 
   return (
     <div className="flex shrink-0 p-2 overflow-hidden font-[sans-serif] rounded-md border-2 max-w-md bg-slate-200 border-slate-600 ">
@@ -11,9 +13,10 @@ export const SearchBar = ({
         value={searchBarProps.searchTerm}
         placeholder={searchBarProps.placeholder}
         className="w-full outline-none bg-transparent text-gray-600 text-sm"
+        onChange={(e) => (e.target.value)}
       />
       <Link
-        href={`?search=${searchBarProps.searchTerm}`}
+        href={`?search=${searchBarProps.searchTerm}`} // this needs to be field value
         type="submit"
         className="w-5 rounded-md hover:bg-slate-300"
       >

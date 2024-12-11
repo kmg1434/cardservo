@@ -44,6 +44,24 @@ export async function searchCards(searchTerm: string): Promise<Card[]> {
     return cards.data;
 }
 
+export async function getCardByScryfallId(scryfall_id: string): Promise<Card> {
+
+    const scryfallMultiverseIdUrl = `${SCRYFALL_BASE_URL}/cards/${scryfall_id}`;
+
+    const response = await fetch(scryfallMultiverseIdUrl, {
+        method: 'GET',
+        headers: {
+            'User-Agent': 'Cardservo/v0.0.1',
+            'Content-Type': 'application/json;',
+            'Accept': 'application/json;',
+        },
+    })
+    
+    const cardData: Card = await response.json();
+
+    return cardData;
+}
+
 export async function getCardByMultiverseId(multiverse_id: string): Promise<Card> {
 
     const scryfallMultiverseIdUrl = `${SCRYFALL_BASE_URL}/cards/multiverse/${multiverse_id}`;
@@ -56,12 +74,8 @@ export async function getCardByMultiverseId(multiverse_id: string): Promise<Card
             'Accept': 'application/json;',
         },
     })
-
     
     const data: { data: Card } = await response.json();
-
-    console.log("data: ", data);
-
     const card: Card = data.data;
 
     return card;
