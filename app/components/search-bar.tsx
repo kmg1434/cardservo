@@ -1,22 +1,52 @@
 "use client";
 
 import Link from "next/link";
+import { ENTER_KEY_CODE } from "../_lib/constants";
+import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export const SearchBar = ({
   searchBarProps,
-}: { searchBarProps: { searchTerm?: string, placeholder?: string } }) => {
+}: {
+  searchBarProps: { searchTerm?: string; placeholder?: string };
+}) => {
+  const router = useRouter();
+
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const onSubmit = (e: any) => {
+    e.preventDefault();
+    setSearchTerm(e.target.value);
+    if (e.target.value.length !== 0) {
+      // search
+      // have search term in URL
+      router.push(`?search=${searchTerm}`);
+    }
+  };
+
+  const onKeyUp = (e: any) => {
+    if (e.keyCode === ENTER_KEY_CODE) {
+      onSubmit(e);
+    }
+  };
+
+  const onChange = (e: any) => {
+    setSearchTerm(e.target.value);
+  };
 
   return (
     <div className="flex shrink-0 p-2 overflow-hidden font-[sans-serif] rounded-md border-2 max-w-md bg-slate-200 border-slate-600 ">
       <input
         type="email"
-        value={searchBarProps.searchTerm}
+        value={searchTerm}
         placeholder={searchBarProps.placeholder}
         className="w-full outline-none bg-transparent text-gray-600 text-sm"
-        onChange={(e) => (e.target.value)}
+        onKeyUp={onKeyUp}
+        onChange={onChange}
+        onSubmit={onSubmit}
       />
       <Link
-        href={`?search=${searchBarProps.searchTerm}`} // this needs to be field value
+        href={`?search=${searchTerm}`}
         type="submit"
         className="w-5 rounded-md hover:bg-slate-300"
       >

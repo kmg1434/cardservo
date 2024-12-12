@@ -40,7 +40,6 @@ export async function searchCards(searchTerm: string): Promise<Card[]> {
     })
 
     const cards: { data: Card[] } = await response.json();
-
     return cards.data;
 }
 
