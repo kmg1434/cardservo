@@ -24,11 +24,13 @@ const CardsPage = async ({
       return (
         <>
           <Navbar />
-          <SearchBar searchBarProps={searchBarProps} />
-          <section className="container mx-auto px-4 py-8">
-            <ul className="flex">
+          <section className="flex p-4 justify-center">
+            <SearchBar searchBarProps={searchBarProps} />
+          </section>
+          <section className="container mx-auto py-4">
+            <ul className="flex flex-wrap justify-center">
               {cards.map((card: Card) => (
-                <li key={card.id} className="flex min-w-12">
+                <li key={card.id} className="flex min-w-10">
                   <Link
                     href={{
                       pathname: `/cards/${card.id}`,

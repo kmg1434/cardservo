@@ -8,8 +8,8 @@ const Navbar = () => {
     const pathname = usePathname();
 
     return (
-        <div>
-            <nav className="bg-gradient-to-b from-yellow-400 to-red-400 flex p-4">
+        <>
+            <nav className="border-b-2 border-black bg-gradient-to-l from-gray-400 to-blue-800 flex p-4">
                 <ul className='flex space-x-4'>
                     <li className={pathname === '/' ?
                         'text-white bg-gray-900 px-3 py-2 rounded-md'
@@ -33,7 +33,7 @@ const Navbar = () => {
                     </li>
                 </ul>
             </nav>
-        </div>
+        </>
     )
 }
 
