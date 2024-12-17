@@ -35,7 +35,7 @@ export const SearchBar = ({
   };
 
   return (
-    <div className="flex shrink-0 p-2 overflow-hidden font-[sans-serif] rounded-md border-2 max-w-md bg-slate-200 border-slate-600 ">
+    <div className="flex w-1/2 shrink-0 p-2 overflow-hidden font-[sans-serif] rounded-md border-2 max-w-xl bg-slate-200 border-slate-600 ">
       <input
         type="email"
         value={searchTerm}

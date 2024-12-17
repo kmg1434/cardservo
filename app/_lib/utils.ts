@@ -1,4 +1,4 @@
-export const getCardImageURI = (card: Card) => {
+export const getCardImageURI = (card: Card, size?: string) => {
 
     if (isDoubleSided(card)) {
         console.log("is double sided")

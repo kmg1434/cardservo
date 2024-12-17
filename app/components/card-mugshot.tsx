@@ -2,7 +2,7 @@ import React from 'react'
 import Image from 'next/image'
 import { getCardImageURI, isDoubleSided } from '../_lib/utils';
 
-export const CardSnippet = ({ card }: CardProps) => {
+export const CardMugshot = ({ card }: CardProps) => {
 
   return (
     <div className='flex flex-col overflow-hidden'>
